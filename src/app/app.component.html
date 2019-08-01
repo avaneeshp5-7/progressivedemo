@@ -1,21 +1,103 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-- <div class="container">
+
+  
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+       
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+       
+        <form [formGroup]="registerForm" style="padding: 30px">
+          <input type="text" class="form-control" formControlName="FullName"
+            [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }" placeholder="FullName">
+          <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
+          </div><br>
+          <input type="email" class="form-control" formControlName="Email"
+            [ngClass]="{'is-invalid':submitted && f.Email.errors}" placeholder="email">
+          <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+            <div *ngIf="f.Email.errors.email">Not a proper email address</div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-success" (click)="funSave()" data-dismiss="modal">Update & Save</button>
+          &nbsp;&nbsp;&nbsp;
+        </form>
+       
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+
+<div style="margin-top:80px">
+  <form [formGroup]="registerForm" (ngSubmit)="mySubmit()" class="formset">
+    <input type="text" class="form-control" formControlName="FullName"
+      [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }" placeholder="FullName">
+    <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
+      <!-- <div *ngIf="f.FullName.errors.required">req...</div> -->
+    </div><br>
+    <input type="email" class="form-control" formControlName="Email"
+      [ngClass]="{'is-invalid':submitted && f.Email.errors}" placeholder="email">
+    <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+      <!-- <div *ngIf="f.Email.errors.required">req...</div> -->
+      <div *ngIf="f.Email.errors.email">Not a proper email address</div>
+    </div><br>
+    <input type="password" class="form-control" formControlName="Password"
+      [ngClass]="{'is-invalid':submitted && f.Password.errors}" placeholder="password">
+    <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+      <!-- <div *ngIf="f.Password.errors.required">req...</div> -->
+      <div *ngIf="f.Password.errors.minlength">Minimum 8 digit</div>
+      <div *ngIf="f.Password.errors.maxlength">Maxmum 16 digit</div>
+    </div>
+    <br>
+    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Submit</button> &nbsp;&nbsp;&nbsp;
+
+  </form>
+  <!-- <button type="submit" class="btn btn-danger" (click)='funLog()'>Login With Google+</button> -->
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+
+
+<!-- <div class="container">
+  <h2>Table</h2>
+  <table class="table table-hover"
+    style=" border: 2px solid rgb(100, 98, 98);color: rgb(48, 45, 45);text-align: center;background-color: rgb(235, 230, 230)">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Up/Del</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let users of user'>
+        <td>{{users.FullName}}</td>
+        <td>{{users.Email}}</td>
+        <td>{{users.Password}}</td>
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+            (click)="funUpdate(users)">Update</button>&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-danger" (click)="funDel(users.u_id)">Delete User</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+
+
+
+
 
 <router-outlet></router-outlet>

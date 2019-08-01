@@ -1,0 +1,14 @@
+/* .invalid-feedback{
+    border: 1px solid red
+} */
+.formset{width: 30%;margin: auto;padding: 30px;background-color: rgb(235, 230, 230);}
+tr{
+    border: 2px solid rgb(100, 98, 98)
+}
+th{
+    background-color:  rgb(100, 98, 98);
+    color: aliceblue;
+}
+td{
+    border: 2px solid rgb(100, 98, 98)
+}
