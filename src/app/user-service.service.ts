@@ -6,7 +6,7 @@ import { URL } from './api'
   providedIn: 'root'
 })
 export class UserServiceService {
-
+    user:[];
   constructor(private http_url: HttpClient) { }
   user_reg(data) {
     console.log("server side", data)
