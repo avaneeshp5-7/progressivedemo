@@ -1,4 +1,5 @@
 const exp=require('express');
+const path=require('path');
 const app=exp()
 const port=process.env.PORT || 3000
 app.use(exp.static(__dirname + '/dist/reactive8'));
